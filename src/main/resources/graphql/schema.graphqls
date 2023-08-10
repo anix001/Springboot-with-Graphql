@@ -1,0 +1,36 @@
+
+# Queries to retrieve all books, and a book by id
+type Query{
+
+    books: [Book],
+    bookById(bookId: ID!): Book
+
+}
+
+#Query to create book
+type Mutation{
+    storeBookToDb(book:BookInput):Book,
+    updateBookToDb(bookId:ID!, book:BookInput):Book,
+    deleteBook(bookId:ID!):Boolean
+}
+
+# Type Definition
+type Book{
+
+    id: ID!,
+    title: String,
+    description: String,
+    author: String,
+    price: Float,
+    pages: Int
+
+}
+
+#Type Definition
+input BookInput{
+    title: String,
+    description: String,
+    author: String,
+    price: Float,
+    pages: Int
+}
